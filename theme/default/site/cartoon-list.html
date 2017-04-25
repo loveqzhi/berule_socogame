@@ -1,0 +1,18 @@
+<?php foreach($culture['data'] as $data):?>
+    <li>
+        <?php if($data->tag):?>
+        <span class="cartoon-label">                           
+        <img src="/theme/default/site/assets/images/label_<?php echo $data->tag;?>.png">
+        </span>
+        <?php endif;?>
+        <img src="<?php echo $data->preview;?>" alt="">
+        <div class="detail">
+            <h4><?php echo $data->name;?></h4>
+            <p>导演：<em><?php echo $data->author;?></em></p>
+            <p>看点：<span><?php echo $data->keyword;?></span></p>
+            <p>主演：<?php echo $data->participant;?></p>
+            <p>更新集数：更新至<?php echo $data->up;?>集</p>
+            <a href="<?php echo $data->source;?>" target="_blank">点击播放</a>
+        </div>
+    </li>
+    <?php endforeach;?>

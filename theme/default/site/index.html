@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php include 'meta.html'; ?>
+
+</head>
+<body>
+	<div class="wrap">
+		<?php include 'header.html'; ?>      
+		<div class="index-banner">
+			<ul>
+                <?php foreach($images['data'] as $data):?>
+				<li><a href="<?php echo $data->source;?>" <?php if(!$data->source || $data->source=='#'): ?><?php else: ?>target="_blank"<?php endif; ?>><img src="<?php echo $data->preview;?>" alt="<?php echo $data->title;?>"></a></li>
+                <?php endforeach;?>
+			</ul>
+		</div>
+		<div class="index-group">
+			<div class="index-message">
+				<div class="index-mhead">
+					<h4>新闻动态</h4>
+					<a href="/news"></a>
+				</div>
+				<div class="imess-content">
+                    <?php $images = array_values($news_image['data']);?>
+					<a class="news" href="/news"><img src="<?php echo $images[0]->preview;?>" alt=""></a>
+					<ul class="disc-list imess-list">
+                        <?php foreach($news1['data'] as $data):?>
+						<li class="xinwen" style="list-style:none;"><a href="/news/show/<?php echo $data->id;?>" target="_blank" title="<?php echo $data->title;?>"><?php echo mb_substr($data->title,0,16,'utf-8');?>..</a><span><?php echo date('y-m-d',$data->timeline);?></span></li>
+                        <?php endforeach;?>
+					</ul>
+				</div>
+			</div>
+			<div class="index-message">
+				<div class="index-mhead">
+					<h4>品牌资讯</h4>
+					<a href="/game"></a>
+				</div>
+				<div class="imess-content">
+					<a class="game" href="/game"><img src="<?php echo $images[1]->preview;?>" alt=""></a>
+					<ul class="disc-list imess-list">
+						<?php foreach($news2['data'] as $data):?>
+						<li class="pinpai" style="list-style:none;"><a href="/game/show/<?php echo $data->id;?>" target="_blank" title="<?php echo $data->title;?>"><?php echo mb_substr($data->title,0,16,'utf-8');?>..</a><span><?php echo date('y-m-d',$data->timeline);?></span></li>
+                        <?php endforeach;?>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="index-group">
+			<div class="index-gbar">
+				<h4>品牌介绍</h4>
+				<a href="/brand"></a>
+			</div>
+			<div class="index-game">
+                <?php $colors = array(1=>'bg-red',2=>'bg-yellow',3=>'bg-blue',4=>'bg-green',5=>'bg-purple');?>
+                <?php $i=1;foreach($games['data'] as $data):?>
+				<div class="index-galist <?php echo ($i==1)?'index-galist-nomal':'';?>">
+					<a href="<?php echo $data->source;?>" target="_blank">
+                        <img src="<?php echo $data->preview;?>" alt="<?php echo $data->title;?>">
+                    </a>
+					<span class="<?php echo $colors[$i];?>"><?php echo $data->title;?></span>
+				</div>
+                <?php $i++;endforeach;?>
+			</div>
+		</div>
+		<div class="index-group">
+			<div class="index-gbar">
+				<h4>文化产品</h4>
+				<a href="/socogame"></a>
+			</div>
+			<ul class="pic-list">
+                <?php foreach($culture['data'] as $data):?>
+                <li>
+					<a href="<?php echo $data->source;?>" target="_blank">
+						<img src="<?php echo $data->preview;?>" alt="<?php echo $data->title;?>">
+					</a>
+					<?php 
+					if($data->title){
+					    echo '<span>'.$data->title.'</span>';
+					} else {
+					    echo '<span class="below"></span>';
+					}
+
+					?>
+						
+				</li>
+                <?php endforeach;?>
+			</ul>
+		</div>
+		<div class="index-group">
+			<div class="index-gbar">
+				<h4>招贤纳士</h4>
+				<a href="/recruit"></a>
+			</div>
+			<div class="index-job">
+				<img src="/theme/default/site/assets/images/index5.jpg" alt="">
+				<div class="injob-list">
+                    <?php foreach($recruitment['data'] as $data):?>
+					<a href="/recruit/show/<?php echo $data->id;?>" target="_blank"><?php echo $data->name;?></a>
+                    <?php endforeach;?>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php include 'footer.html'; ?>
+	
+</body>
+</html>

@@ -1,0 +1,17 @@
+<?php foreach($culture['data'] as $data):?>
+    <li class="scar-list">
+        <a href="<?php echo $data->source;?>" target="_blank">
+            <?php //计算图片高度 
+                list($width, $height, $type, $attr) = getimagesize(ApplicationRoot . $data->preview);
+                $h = (int)($height * 340)/$width;
+                if (empty($h)) {
+                    $h = 150;
+                }
+            ?>
+            <img width="340" height="<?php echo $h;?>" src="<?php echo $data->preview;?>" alt="<?php echo $data->name;?>">
+        </a>
+        <?php if($data->name):?>
+        <span class="bg-opacity"><?php echo $data->name;?></span>
+        <?php endif;?>
+    </li>
+    <?php endforeach;?>

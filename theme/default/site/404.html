@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php include 'meta.html'; ?>
+
+	<title> 索乐游戏 - 中国领先手机游戏公司 </title>
+</head>
+<body>
+	<div class="wrap">
+		<?php include 'header.html'; ?>
+
+		<div class="section">
+			<div class="error-main">
+				<h1>404</h1>
+				<h4>对不起，您访问的页面被外星人劫持了</h4>
+				<p>Sorry,We cannot find the page you requested.</p>
+				<span>倒计时 <em class="countdown">5</em>s <a href="#">后将跳转到首页</a></span>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+	<?php include 'footer.html'; ?>
+	
+</body>
+</html>
+
+<script>
+	$(function(){
+		var time = 4;
+	    setInterval(function() {
+	        if (time == 0) {
+	            location.href="/";
+	            return false;
+	        } else {
+	            $(".countdown").html(time);
+	            time -= 1;
+	        }  
+	    }, 1000);    
+	});
+</script>

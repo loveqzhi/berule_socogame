@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php include 'meta.html'; ?>
+
+	<title> 索乐游戏 - 中国领先手机游戏公司 </title>
+</head>
+<body>
+	<div class="wrap">
+		<?php include 'header.html'; ?>
+
+		<div class="banner">
+			<img src="/theme/default/site/assets/images/brandwh.jpg" alt="">
+		</div>
+
+		<div class="section">
+			<?php include 'side.html'; ?>
+
+			<div class="main">
+				<div class="crumbs">
+					<span>
+						<i class="glyphicon glyphicon-home"></i> 
+						<a href="/">首页</a> > 
+						<a href="/socogame">文化产品</a> > 
+						音乐作品
+					</span>
+				</div>
+				<div class="main-content">
+					<ul class="soco-masonry soco-music">
+                        <?php foreach($list['data'] as $data):?>
+						<li>
+							<div class="music-list">
+								<span>
+                                   <?php if($data->tag=='hot'):?>
+                                    <img class="music-logo" src="/theme/default/site/assets/images/logo_hot.png" >
+                                    <?php elseif($data->tag=='new'):?>
+                                    <img class="music-logo" src="/theme/default/site/assets/images/logo_new.png" >
+                                    <?php endif;?>
+                                </span>
+								<a href="<?php echo $data->source;?>" target="_blank">
+                                    <img src="<?php echo $data->preview;?>" alt="<?php echo $data->name;?>">
+                                </a>
+								<div class="detail">
+									<h4><?php echo $data->name;?></h4>
+									<p><?php echo $data->author;?></p>
+								</div>
+							</div>
+						</li>
+                        <?php endforeach;?>
+                        <!--
+                        <div class="add-more-before"></div>						
+						<?php if ($list['pager']['pages'] != $list['pager']['page']):?>
+						<li class="more">
+                            <input type="hidden" value="1" id="currentpage">
+                            <input type="hidden" value="<?php echo $list['pager']['pages'];?>" id="maxpage">
+							<a href="javascript:void(0)" class="add-more" data-model="music-list" data-type="music" data-size="5">更多精彩 > <br>
+							<em>●●●●●●●</em></a>
+						</li>
+                        <?php endif;?>
+                        -->
+					</ul>
+                    <div class="page clear">
+						<ul>
+                            <?php echo $app->themeNumberPager($list['pager']);?>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<?php include 'footer.html'; ?>
+	
+</body>
+</html>

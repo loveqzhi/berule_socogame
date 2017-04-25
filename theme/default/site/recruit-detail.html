@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php include 'meta.html'; ?>
+
+	<title> 索乐游戏 - 中国领先手机游戏公司 </title>
+</head>
+<body>
+	<div class="wrap">
+		<?php include 'header.html'; ?>
+
+		<div class="banner">
+			<img src="/theme/default/site/assets/images/talents.jpg" alt="">
+		</div>
+
+		<div class="section">
+			<?php include 'side.html'; ?>
+
+			<div class="main">
+				<div class="crumbs">
+					<span>
+						<i class="glyphicon glyphicon-home"></i> 
+						<a href="/">首页</a> > 
+						<a href="/talents">招贤纳士</a> > 
+						<a href="/recruit">在招岗位</a> > 
+						<?php echo $position->name;?>
+					</span>
+				</div>
+				<div class="main-content">
+					<div class="sjob-head">
+						<h4><?php echo $position->name;?></h4>
+						<p><?php echo !empty($position->source)?'来源：'.$position->source : '';?> &nbsp;时间 <?php echo date('Y-m-d',$position->updated);?></p>
+					</div>
+					<div class="text-group">
+						<?php echo $position->content;?>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<?php include 'footer.html'; ?>
+	
+</body>
+</html>

@@ -1,0 +1,31 @@
+<div class="side">
+				<div class="side-menu disc-list">
+					<h4><?php echo $sidebar['name'];?><br><small><?php echo $sidebar['en_name'];?></small></h4>
+					<ul>
+                        <?php foreach($sidebar['data'] as $k=>$data):?>
+						<li class="<?php echo isset($data['active'])?'active':'';?>"><a href="/<?php echo $k;?>"><?php echo $data['name'];?></a></li>
+                        <?php endforeach;?>
+					</ul>
+				</div>
+				
+				
+				<div class="side-naga">
+					<h4>快速导航</h4>
+					<ul>
+						<li class="side-game"><a href="/brand">品牌介绍<br><em>BRAND INTRODUCTION</em></a></li>
+						<li class="side-employ"><a href="/recruit">招聘信息<br><em>RECRUITMENT</em></a></li>
+						<li class="side-cooper"><a href="/business">商务合作<br><em style="display:block;-webkit-transform:scale(0.9);-webkit-text-size-adjust:none;-webkit-margin-start:-10px;">BUSINESS COOPERATION</em></a></li>
+						<li class="side-call">联系电话<br>8621-61075799</li>  
+					</ul>
+				</div>
+			</div>
+
+			<!-- 手机端侧边栏-->
+			<div class="mobile-side-menu mobile-disc-list">
+					<h4><?php echo $sidebar['name'];?><br><small><?php echo $sidebar['en_name'];?></small></h4>
+					<ul>
+                        <?php foreach($sidebar['data'] as $k=>$data):?>
+						<li class="<?php echo isset($data['active'])?'active':'';?>"><a href="/<?php echo $k;?>"><?php echo $data['name'];?></a></li>
+                        <?php endforeach;?>
+					</ul>
+				</div>

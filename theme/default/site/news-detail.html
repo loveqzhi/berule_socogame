@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php include 'meta.html'; ?>
+
+	<title> 索乐游戏 - 中国领先手机游戏公司 </title>
+</head>
+<body>
+	<div class="wrap">
+		<?php include 'header.html'; ?>
+
+		<div class="banner">
+			<img src="/theme/default/site/assets/images/news.jpg" alt="">
+		</div>
+
+		<div class="section">
+			<?php include 'side.html'; ?>
+
+			<div class="main">
+				<div class="crumbs">
+					<span>
+						<i class="glyphicon glyphicon-home"></i> 
+						<a href="/">首页</a> > 
+						<a href="/news">索乐动态</a> > 
+						<?php foreach($sidebar['data'] as $k=>$data) {
+                            if (isset($data['active'])) {
+                                echo $data['name'];
+                            }
+                        }
+                        ?>
+					</span>
+				</div>
+				<div class="main-content">
+					<div class="news-detail">
+						<h3><?php echo $article->title;?></h3>
+						<span class="news-dtime"><?php echo date('Y年m月d日',$article->timeline);?></span>
+						<?php echo $article->content;?>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<?php include 'footer.html'; ?>
+	
+</body>
+</html>

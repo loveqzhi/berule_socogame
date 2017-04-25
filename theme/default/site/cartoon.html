@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php include 'meta.html'; ?>
+
+	<title> 索乐游戏 - 中国领先手机游戏公司 </title>
+</head>
+<body>
+	<div class="wrap">
+		<?php include 'header.html'; ?>
+
+		<div class="banner">
+			<img src="/theme/default/site/assets/images/brandwh.jpg" alt="">
+		</div>
+
+		<div class="section">
+			<?php include 'side.html'; ?>
+
+			<div class="main">
+				<div class="crumbs">
+					<span>
+						<i class="glyphicon glyphicon-home"></i> 
+						<a href="/">首页</a> > 
+						<a href="/socogame">文化产品</a> > 
+						动画产品
+					</span>
+				</div>
+				<div class="main-content">
+					<ul class="soco-masonry soco-spgame soco-product">
+                       <?php foreach($list['data'] as $data):?>
+						<li class="scar-list">
+							<a href="<?php echo ($data->source=='#')?'/cartoon/'.$data->id.'/detail' : $data->source;?>" target="_blank">
+                                <img src="<?php echo $data->preview;?>" alt="<?php echo $data->name;?>" width="324" style="height:190px">
+                            </a>
+							<?php if($data->name):?>
+                            <span class="bg-opacity"><?php echo $data->name;?></span>
+                            <?php endif;?>
+						</li>
+						<?php endforeach;?>
+					</ul>
+					
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<?php include 'footer.html'; ?>
+	
+</body>
+</html>

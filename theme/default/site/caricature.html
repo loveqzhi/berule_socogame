@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php include 'meta.html'; ?>
+
+	<title> 索乐游戏 - 中国领先手机游戏公司 </title>
+</head>
+<body>
+	<div class="wrap">
+		<?php include 'header.html'; ?>
+
+		<div class="banner">
+			<img src="/theme/default/site/assets/images/brandwh.jpg" alt="">
+		</div>
+
+		<div class="section">
+			<?php include 'side.html'; ?>
+
+			<div class="main">
+				<div class="crumbs">
+					<span>
+						<i class="glyphicon glyphicon-home"></i> 
+						<a href="/">首页</a> > 
+						<a href="/socogame">文化产品</a> > 
+						<a href="/caricature">图书绘本</a> > 图书
+					</span>
+				</div>
+				<div class="main-content">
+					<ul class="soco-masonry soco-cartoon">
+                        <?php foreach($list['data'] as $data):?>
+						<li class="scar-list">
+							<a href="<?php echo ($data->source=='#' && $subtype==0)?'/caricature?subtype='.$data->subtype : $data->source;?>" <?php echo ($subtype!=0) ? '' : 'target="_blank"';?>>
+                                <img src="<?php echo $data->preview;?>" alt="<?php echo $data->name;?>">
+                            </a>
+                            <?php if($data->name):?>
+							<span class="bg-opacity"><?php echo $data->name;?></span>
+                            <?php endif;?>
+						</li>
+                        <?php endforeach;?>
+                        <div class="add-more-before"></div>
+					</ul>
+
+					
+
+
+
+                    <?php if ($list['pager']['pages'] != $list['pager']['page']):?>
+					<div class="soco-cartoon-more">
+                        <input type="hidden" value="1" id="currentpage">
+                        <input type="hidden" value="<?php echo $list['pager']['pages'];?>" id="maxpage">
+                        <input type="hidden" value="<?php echo $subtype;?>" id="subtype">
+						<a href="javascript:void(0)" class="add-more" data-model="caricature-list" data-type="caricature" data-size="4">更多精彩 > <em>●●●●●●●</em></a>
+					</div>
+                    <?php endif;?>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<?php include 'footer.html'; ?>
+	
+</body>
+</html>

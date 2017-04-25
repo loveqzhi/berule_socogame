@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php include 'meta.html'; ?>
+
+	<title> 索乐游戏 - 中国领先手机游戏公司 </title>
+</head>
+<body>
+	<div class="wrap">
+		<?php include 'header.html'; ?>
+
+		<div class="banner">
+			<img src="/theme/default/site/assets/images/connect.jpg" alt="">
+		</div>
+
+		<div class="section">
+			<?php include 'side.html'; ?>
+
+			<div class="main">
+				<div class="crumbs">
+					<span>
+						<i class="glyphicon glyphicon-home"></i> 
+						<a href="/">首页</a> > 
+						<a href="/company">联系我们</a> > 
+						商务合作
+					</span>
+				</div>
+				<div class="main-content">
+					<div class="soco-connect">
+						<h4>联系方式</h4>
+						<p>联系地址：上海市广中西路355号宝华中心16F</p>
+						<p>邮政编码： 200072</p>
+						<p>联系电话： 8621-61075799</p>
+						<table>
+							<thead>
+								<tr>
+									<th>业务部门</th>
+									<th>联系邮箱</th>
+								</tr>
+							</thead>
+							<tbody>
+                                <?php foreach($business['data'] as $data):?>
+								<tr>
+									<td><?php echo $data->department;?></td>
+									<td><?php echo $data->email;?></td>
+								</tr>
+                                <?php endforeach;?>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<?php include 'footer.html'; ?>
+	
+</body>
+</html>

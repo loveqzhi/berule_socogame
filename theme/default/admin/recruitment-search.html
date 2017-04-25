@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<?php require_once 'common.html';?>
+    <title>招贤纳士</title>
+</head>
+<body>
+<?php require_once 'header.html';?>
+        <div class="wrap">
+        <?php require_once 'sidebar.html';?>
+
+            <div class="main-content">
+            
+                <div class="page-content">
+                    
+                    <div class="page-header">
+                        <h1>招贤纳士</h1>
+                    </div><!-- /.page-header -->
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a href="/admin/recruitment/add" class="btn btn-btn btn-add">新增职位</a>
+                            <div class="pagination-right">
+                                <?php echo $app->themePager($list['pager'],$app->request->getUriForPath('/admin/recruitment/search'));?>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped">
+                                <thead class="thead-heading">
+                                    <tr>
+                                        <th>编号</th>
+                                        <th>类别</th>
+                                        <th>职位名称</th>
+                                        <th>来源</th>
+                                        <th>添加时间</th>
+                                        <th>更新时间</th>
+                                        <th>管理员</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($list['data'] as $k=>$data):?>
+                                    <tr>
+                                        <td><?php echo $data->id;?></td>
+                                        <td><?php echo config()->get('position')[$data->type];?></td>
+                                        <td><?php echo $data->name;?></td>
+                                        <td><?php echo $data->source;?></td>
+                                        <td><?php echo date('Y/m/d H:i',$data->created);?></td>
+                                        <td><?php echo date('Y/m/d H:i',$data->updated);?></td>
+                                        <td><?php echo $data->admin_name;?></td>
+                                        <td>
+                                            <a href="/admin/recruitment/edit/<?php echo $data->id;?>" class=" btn-default btn-sm">
+                                                <i class="fa fa-pencil-square-o"></i> 修改
+                                            </a>
+                                             <a href="/admin/recruitment/delete/<?php echo $data->id;?>" class="btn-default btn-sm confirm">
+                                                <i class="fa fa-times"></i> 删除
+                                            </a>
+                                             <a href="/admin/recruitment/flush/<?php echo $data->id;?>" class="btn-default btn-sm">
+                                                <i class="fa fa-refresh"></i> 刷新
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <?php endforeach;?>
+                                </tbody>
+                                
+                                <thead class="thead-heading">
+                                    <tr>
+                                        <th colspan="8" style="text-align:center;">
+                                         <?php echo $app->themePager($list['pager'],$app->request->getUriForPath('/admin/recruitment/search'));?>
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>                        
+                    </div>
+
+                </div>
+            
+            </div>
+            
+            <div class="clearfix"></div>
+        </div>
+        
+        <?php require_once 'footer.html';?>

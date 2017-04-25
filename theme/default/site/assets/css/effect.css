@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+.index-galist a,
+.music-list a,
+.scar-list a
+ {
+    overflow: hidden;
+}
+.index-galist a img,
+.music-list a img,
+.scar-list a img
+ {
+	transition: all .5s ease 0s;
+	-moz-transition: all .5s ease 0s;
+	-webkit-transition: all .5s ease 0s;
+	-o-transition: all .5s ease 0s;
+}
+.index-galist a:hover img,
+.music-list a:hover img,
+.scar-list a:hover img
+ {
+    transform: scale(1.2, 1.2);
+	-ms-transform:scale(1.2, 1.2);
+	-moz-transform:scale(1.2, 1.2);
+	-webkit-transform:scale(1.2, 1.2);
+	-o-transform:scale(1.2, 1.2);
+}
+

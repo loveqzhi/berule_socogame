@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php include 'meta.html'; ?>
+
+	<title> 索乐游戏 - 中国领先手机游戏公司 </title>
+</head>
+<body>
+	<div class="wrap">
+		<?php include 'header.html'; ?>
+
+		<div class="banner">
+			<img src="/theme/default/site/assets/images/news.jpg" alt="">
+		</div>
+
+		<div class="section">
+			<?php include 'side.html'; ?>
+
+			<div class="main">
+				<div class="crumbs">
+					<span>
+						<i class="glyphicon glyphicon-home"></i> 
+						<a href="/">首页</a> > 
+						<a href="/news">索乐动态</a> > 
+						品牌资讯
+					</span>
+				</div>
+				<div class="main-content">
+					<ul class="soco-infor">
+						<?php foreach($list['data'] as $data):?>
+						<li>
+							<a href="/game/show/<?php echo $data->id;?>" target="_blank"> <?php echo mb_substr($data->title,0,38,'utf-8');?></a>
+							<span><?php echo substr(date('Y-m-d',$data->timeline),2);?></span>
+						</li>
+                        <?php endforeach;?>
+					</ul>
+					<div class="page">
+						<ul>
+							<?php echo $app->themeNumberPager($list['pager']);?>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<?php include 'footer.html'; ?>
+	
+</body>
+</html>

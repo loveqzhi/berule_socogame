@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php include 'meta.html'; ?>
+
+	<title> 索乐游戏 - 中国领先手机游戏公司 </title>
+</head>
+<body>
+	<div class="wrap">
+		<?php include 'header.html'; ?>
+
+		<div class="banner">
+			<img src="/theme/default/site/assets/images/talents.jpg" alt="">
+		</div>
+
+		<div class="section">
+			<?php include 'side.html'; ?>
+
+			<div class="main">
+				<div class="crumbs">
+					<span>
+						<i class="glyphicon glyphicon-home"></i> 
+						<a href="/">首页</a> > 
+						<a href="/talents">招贤纳士</a> > 
+						在招岗位
+					</span>
+				</div>
+				<div class="main-content">
+					<ul class="soco-job">
+						<li class="job-program">
+							<h4>程序类 <em>Program development</em></h4>
+                            <?php foreach($positions[1]['data'] as $position):?>
+                                <a href="/recruit/show/<?php echo $position->id;?>"><?php echo $position->name;?></a>
+                            <?php endforeach;?>
+						</li>
+						<li class="job-planning">
+							<h4>策划类 <em>Project planning</em></h4>
+							<?php foreach($positions[2]['data'] as $position):?>
+                                <a href="/recruit/show/<?php echo $position->id;?>"><?php echo $position->name;?></a>
+                            <?php endforeach;?>
+						</li>
+						<li class="job-art">
+							<h4>美术类 <em>Art design</em></h4>
+							<?php foreach($positions[3]['data'] as $position):?>
+                                <a href="/recruit/show/<?php echo $position->id;?>"><?php echo $position->name;?></a>
+                            <?php endforeach;?>
+						</li>
+						<li class="job-manage">
+							<h4>运营类 <em>Operation managemment</em></h4>
+							<?php foreach($positions[4]['data'] as $position):?>
+                                <a href="/recruit/show/<?php echo $position->id;?>"><?php echo $position->name;?></a>
+                            <?php endforeach;?>
+						</li>
+						<li class="job-comprehensive">
+							<h4>综合类 <em>Comprehensive</em></h4>
+							<?php foreach($positions[5]['data'] as $position):?>
+                                <a href="/recruit/show/<?php echo $position->id;?>"><?php echo $position->name;?></a>
+                            <?php endforeach;?>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<?php include 'footer.html'; ?>
+	
+</body>
+</html>

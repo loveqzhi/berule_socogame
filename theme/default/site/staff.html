@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php include 'meta.html'; ?>
+
+	<title> 索乐游戏 - 中国领先手机游戏公司 </title>
+</head>
+<body>
+	<div class="wrap">
+		<?php include 'header.html'; ?>
+
+		<div class="banner">
+			<img src="/theme/default/site/assets/images/about.jpg" alt="">
+		</div>
+
+		<div class="section">
+			<?php include 'side.html'; ?>
+
+			<div class="main">
+				<div class="crumbs">
+					<span>
+						<i class="glyphicon glyphicon-home"></i> 
+						<a href="/">首页</a> > 
+						<a href="/about">关于索乐</a> > 
+						员工风采
+					</span>
+				</div>
+				<div class="main-content">
+					<div class="soco-photowall" style="background:none;">
+                        <a class="photo-wall-1" rel="example_group" href="/cache/upload/images/20150213/20150213_507879.jpg">
+                            <img src="/theme/default/site/assets/images/staff.jpg" />
+                        </a>
+                        <?php $i=1;foreach($images['data'] as $k=>$data):?>
+						<a style="display:none;" class="photo-wall-<?php echo $i;?>" rel="example_group" href="<?php echo $data->preview;?>">
+                        <img src="<?php echo $data->preview;?>" alt="<?php echo $data->title;?>"></a>
+                        <?php $i++;?>
+                        <?php endforeach;?>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<?php include 'footer.html'; ?>
+	
+</body>
+</html>

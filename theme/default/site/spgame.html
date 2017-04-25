@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php include 'meta.html'; ?>
+
+	<title> 索乐游戏 - 中国领先手机游戏公司 </title>
+</head>
+<body>
+	<div class="wrap">
+		<?php include 'header.html'; ?>
+
+		<div class="banner">
+			<img src="/theme/default/site/assets/images/game.jpg" alt="">
+		</div>
+
+		<div class="section">
+			<?php include 'side.html'; ?>
+
+			<div class="main">
+				<div class="crumbs">
+					<span>
+						<i class="glyphicon glyphicon-home"></i> 
+						<a href="/">首页</a> > 
+						<a href="/socogame">文化产品</a> > <a href="/socogame"> 游戏产品</a> > 
+                        <?php foreach($sidebar['data'] as $k=>$data) {
+                            if (isset($data['active'])) {
+                                echo $data['name'];
+                            }
+                        }
+                        ?>
+					</span>
+				</div>
+				<div class="main-content">
+					<ul class="soco-spgame">
+                        <?php if(isset($topImage) && !empty($topImage)):?>
+                        <li class="spgame-large">
+                            <a href="<?php echo $topImage->source;?>"  target="_blank">
+                                <img src="<?php echo $topImage->preview;?>" alt="<?php echo $topImage->name;?>">
+                            </a>
+                            <span class="bg-opacity"><?php echo config()->get('catalog')['游戏产品'][$topImage->type]['name'];?></span>
+                        </li>
+                        <?php endif;?>
+                        <?php foreach($list['data'] as $data):?>
+                        <li>
+                            <a href="<?php echo $data->source;?>"  target="_blank">
+                                <img src="<?php echo $data->preview;?>" alt="<?php echo $data->name;?>">
+                            </a>
+                            <span class="bg-opacity"><?php echo config()->get('catalog')['游戏产品'][$data->type]['name'];?></span>
+                        </li>
+                        <?php endforeach;?>						
+						<div class="clear"></div>
+					</ul>
+					<div class="page">
+						<ul>
+							<?php echo $app->themeNumberPager($list['pager']);?>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<?php include 'footer.html'; ?>
+	
+</body>
+</html>

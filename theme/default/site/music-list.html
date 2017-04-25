@@ -1,0 +1,20 @@
+<?php foreach($culture['data'] as $data):?>
+    <li>
+        <div class="music-list">
+            <span>
+                <?php if($data->tag=='hot'):?>
+                <img class="music-logo" src="/theme/default/site/assets/images/logo_hot.png" >
+                <?php elseif($data->tag=='new'):?>
+                <img class="music-logo" src="/theme/default/site/assets/images/logo_new.png" >
+                <?php endif;?>               
+            </span>
+            <a href="<?php echo $data->source;?>" target="_blank">
+                <img src="<?php echo $data->preview;?>" alt="<?php echo $data->name;?>">
+            </a>
+            <div class="detail">
+                <h4><?php echo $data->name;?></h4>
+                <p><?php echo $data->author;?></p>
+            </div>
+        </div>
+    </li>
+    <?php endforeach;?>

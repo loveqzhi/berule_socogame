@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php include 'meta.html'; ?>
+
+	<title> 索乐游戏 - 中国领先手机游戏公司 </title>
+</head>
+<body>
+	<div class="wrap">
+		<?php include 'header.html'; ?>
+
+		<div class="banner">
+			<img src="/theme/default/site/assets/images/brandwh.jpg" alt="">
+		</div>
+
+		<div class="section">
+			<?php include 'side.html'; ?>
+
+			<div class="main">
+				<div class="crumbs">
+					<span>
+						<i class="glyphicon glyphicon-home"></i> 
+						<a href="/">首页</a> > 
+						<a href="/socogame">文化产品</a> > <a href="/other">更多产品</a> 
+						<?php switch($subtype){
+                            case 5: echo '> 消费品授权';break;
+                            case 4: echo '> 周边产品';break;
+                            case 6: echo '> 商业巡展';break;
+                            default: echo '';break;
+                        }
+                        ?>
+					</span>
+				</div>
+				<div class="main-content">
+					<ul class="soco-masonry soco-spgamemore soco-product">
+                        <?php foreach($list['data'] as $data):?>
+						<li class="scar-list">
+							<a href="<?php echo ($data->source=='#' && $subtype==0)?'/other?subtype='.$data->subtype : $data->source;?>" 
+                                <?php echo ($subtype!=0 || substr($data->source,0,1)=='#') ? '' : 'target="_blank"';?>>
+                                <img src="<?php echo $data->preview;?>" alt="<?php echo $data->name;?>" width="100%" height="100%">
+                            </a>
+							<?php if($data->name):?>
+                            <span class="bg-opacity"><?php echo $data->name;?></span>
+                            <?php endif;?>
+						</li>
+						<?php endforeach;?>
+					</ul>
+
+                    <!--
+                    <div class="page clear">
+						<ul>
+                            <?php echo $app->themeNumberPager($list['pager']);?>
+						</ul>
+					</div>
+                    -->
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<?php include 'footer.html'; ?>
+	
+</body>
+</html>
